@@ -1,5 +1,20 @@
 from flask import Flask, request, render_template
 
+import os
+from flask import Flask
+ 
+app = Flask(__name__)
+ 
+@app.route("/")
+def home():
+    return "Hello, Render!"
+ 
+if __name__ == "__main__":
+    # Get the PORT from the environment variable, default to 5000
+    port = int(os.environ.get("PORT", 5000))
+    # Run the app on 0.0.0.0 to make it publicly accessible
+    app.run(host="0.0.0.0", port=port)
+
 app = Flask(__name__)
 
 # In-memory history storage
